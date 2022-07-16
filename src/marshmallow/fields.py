@@ -896,7 +896,7 @@ class String(Field):
         if not isinstance(value, (str, bytes)):
             raise self.make_error("invalid")
         try:
-            return utils.ensure_text_type(value)
+            return utils.ensure_text_type(value.strip())
         except UnicodeDecodeError as error:
             raise self.make_error("invalid_utf8") from error
 
